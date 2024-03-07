@@ -1,0 +1,25 @@
+# O sa vezi mult 'mongo' si 'mongoose' , nu e neaparat sa folosesti MongoDB, poti folosi si alte baze de date, de exemplu MySQL, Postgres care poate is mai usor de folosit.
+
+# Ar mai trebui endpoint uri multe pentru alte treburi, majoritatea fiind GET requests, sa le vizualizezi in FrontEnd, de ex: 
+'/raport-firma/:id', (ID insemnand firma cu IDul X) 
+'/raport-angajat' (toti de la firma X), 
+'/get-angajat/:id' (doar unu, dupa ID) etc.
+
+# Editare angajati sau Masini/Depozite/Orar:
+Aici foloesti ori PUT request, ori PATCH request, in functie de ce vrei sa faci.
+ex:
+'/edit-angajat/:id' (PUT request)
+'/edit-masina/:id' (PUT request)
+
+# Adaugare de angajati sau Masini/Depozite/Orar:
+Aici folosesti POST request, de exemplu:
+'/add-angajat' (POST request) - IDul il genereaza DB-ul automat, nu trebuie sa il pui tu.
+'/add-masina' (POST request) (poti avea parametrii gen 'marca', 'model', 'an', 'culoare' etc. in request body)
+
+# Monitorizare comenzi o lasi pe mai tarziu ca e mai complicat, poate o implementare mai simpla si sa ai doar ceva gen:
+'/comanda/:id' (GET request) -> returneaza "In curs de procesare" sau "Finalizata" sau "Anulata" etc.
+'/comanda/:id' (PUT request) -> schimba statusul comenzii
+'/comanda' (POST request) -> adauga comanda noua
+'/comanda' (GET request) -> returneaza TOATE comenzile
+
+# Pe viitor daca se scaleaza aplicatia implementezi si paginare, filtrare, sortare etc., daca ai 1000 de comenzi si le vrei alea ce contin in ID string-ul "29" le sortezi pe server si trimiti la client doar alea 50 care se potrivesc, nu trimiti la client in browser toate comenzile, si dupa sa fie sortate, ca creste factura la AWS :).

@@ -1,0 +1,19 @@
+.sidebar-item{
+    display: flex; align-items: center;
+    gap: 0.7rem;
+    padding: var(--padding) calc(var(--padding) + 5px) var(--padding) calc(var(--padding) + 3px);
+    cursor: pointer;
+    border-radius: var(--radius);
+}
+.sidebar-item:hover, .sidebar-item:active{
+    background-color: var(--gray-thin);
+}
+.sidebar-item.active {
+    background-color: var(--gray-thin); 
+}
+.sidebar-item.active p{
+    font-weight: 600;
+}
+.sidebar-item.active svg{
+    fill: var(--primary);
+}

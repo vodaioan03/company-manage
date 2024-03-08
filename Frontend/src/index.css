@@ -1,0 +1,109 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+/* the user downloades "Poppins", a 1.5kb .ttf file, if not already cached */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+
+  color-scheme: light dark;
+  background-color: var(--bg);
+  color: var(--text);
+
+  /* CSS Variables: > */  
+  --text: #f5f5f5;
+  --bg: #1e1e1e;
+  --bg-darker: #2a2a2a;
+  --primary: #6e65d1;
+  --primary-thin: #3c2ce544;
+
+  --gray: #888;
+  --gray-thin: #8882;
+  
+  --sidePadding: 10vw;
+  --padding: calc(0.7rem + 0.2vw);
+  --radius: 0.5rem;
+  --sidebar-offset: 2rem;
+
+  --timing: cubic-bezier(0.175, 0.885, 0.32, 1.275); /* for bouncy transitions */
+}
+@media (prefers-color-scheme: light) {
+  :root {
+    --text: #222;
+    --bg: #f1f1f1;
+    --bg-darker: #e5e5e5;
+  }
+}
+[data-theme="light"] {
+  --text: #242424;
+  --bg: #f5f5f5;
+  --bg-darker: #e5e5e5;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+  border-color: var(--bg-darker);
+}
+
+::selection {
+  background-color: var(--primary);
+  color: var(--bg)
+}
+
+body, html, #root{
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  background-color: var(--bg);
+}
+
+a{
+  text-decoration: none;
+  color: inherit;
+}
+img{
+  object-fit: cover;
+}
+
+h1, h2, h3, h4, p {
+  font-weight: 400;
+  line-height: 1.5;
+  margin: 0;
+}
+
+h1{ font-size: calc(2rem + 1vw); font-weight: 700; }
+h2{ font-size: calc(1.6rem + 0.5vw); }
+h3{ font-size: calc(1.4rem + 0.3vw) }
+h4{ font-size: calc(1.2rem + 0.2vw) }
+p, span{ font-size: calc(0.9rem + 0.1vw) }
+hr{ border-color: var(--bg-darker); }
+
+/* Important styles ^ ^ ^ ^ ^ ^  */
+
+main{
+  min-height: 100vh; 
+  min-height: 100dvh; 
+  width: 100%;
+  padding: 1.3rem
+}
+
+.centerAll{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (max-width: 640px) {
+  :root {
+    --sidebar-offset: 1rem;
+  }
+}

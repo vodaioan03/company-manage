@@ -1,9 +1,7 @@
-# company-manager
+# To start frontend, run the following commands:
 
-## Frontend component
-
-<br>
-
-## Made with React Native
-
-123
+```bash
+cd Frontend
+npm install
+npm run dev
+```
